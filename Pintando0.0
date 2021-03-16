@@ -1,26 +1,47 @@
+#Primer entrega
+#Equipo 2:
+#Jose Arnoldo Rositas Salinas
+#Pablo Masao Yesaki Serrato
+
+#Importar librerias
 from turtle import *
 from freegames import vector
 import math
+
+#Funcion para dibujar linea
 def line(start, end):
     "Draw line from start to end."
+    #Levanta la pluma
     up()
+    #La lleva al punto inicial
     goto(start.x, start.y)
+    #Baja la pluma
     down()
+    #Hace el trazo hasta el punto final
     goto(end.x, end.y)
 
+#Funcion para dibujar cuadrado
 def square(start, end):
     "Draw square from start to end."
+    #Levanta la pluma
     up()
+    #La lleva al punto inicial
     goto(start.x, start.y)
+    #Baja la pluma
     down()
+    #Inicia un llenado hasta que el punto final se encuentre con el inicial
     begin_fill()
 
+    #Un ciclo de 4 rectas que trazan al cuadrado
     for count in range(4):
+        #Da 1 paso derecho hacia la dirección en x correspondiente a una diagonal
         forward(end.x - start.x)
+        #Gira 90 grados hacia la izquierda
         left(90)
 
     end_fill()
 
+#Funcion para dibujar circulo
 def circle(start, end):
     "Draw circle from start to end."
 
@@ -54,14 +75,17 @@ def circle(start, end):
 
     end_fill()
 
+#Funcion para dibujar rectangulo
 def rectangle(start, end):
     "Draw rectangle from start to end."
     pass  # TODO
 
+#Funcion para dibujar triangulo
 def triangle(start, end):
     "Draw triangle from start to end."
     pass  # TODO
 
+#Funcion para almacenar puntos de inicio
 def tap(x, y):
     "Store starting point or draw shape."
     start = state['start']
@@ -74,21 +98,28 @@ def tap(x, y):
         shape(start, end)
         state['start'] = None
 
+#Funcion para almacenar tecla presionada
 def store(key, value):
     "Store value in state at key."
     state[key] = value
 
+#Estado predeterminado
 state = {'start': None, 'shape': line}
+#Tamaño de app
 setup(420, 420, 370, 0)
+#Activar el parámetro de clic
 onscreenclick(tap)
 listen()
+#Deshacer con u
 onkey(undo, 'u')
+#Colores de turtle asignados a una tecla
 onkey(lambda: color('black'), 'K')
 onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
 onkey(lambda: color('violet'), 'V')
+#Tipo de figura a trazar según la tecla precionada
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
