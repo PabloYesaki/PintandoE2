@@ -1,6 +1,6 @@
 from turtle import *
 from freegames import vector
-import math
+
 def line(start, end):
     "Draw line from start to end."
     up()
@@ -23,36 +23,7 @@ def square(start, end):
 
 def circle(start, end):
     "Draw circle from start to end."
-
-    #Propiedades del circulo
-    diametro = math.hypot(end.x - start.x, end.y - start.y)
-    radio = diametro / 2
-
-    #Calculo de origen
-    OrigenX = 0
-    OrigenY = 0
-    if start.x > end.x:
-        OrigenX = start.x - radio
-    else:
-        OrigenX = start.x + radio
-    if start.y > end.y:
-        OrigenY = start.y - radio
-    else:
-        OrigenY = start.y - radio
-
-    #Ubicar la pluma
-    up()
-    goto(OrigenX, OrigenY)
-    down()
-    begin_fill()
-
-    #Generar 360 trazos haciendo giros de un grado
-    for count in range(360):
-        #La longitud de dichos trazos sera igual al perimetro del circulo entre 360 los trazos
-        forward((math.pi * diametro)/360)
-        left(1)
-
-    end_fill()
+    pass  # TODO
 
 def rectangle(start, end):
     "Draw rectangle from start to end."
@@ -113,7 +84,6 @@ onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
-onkey(lambda: color('violet'), 'V')
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
