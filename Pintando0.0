@@ -82,14 +82,19 @@ def rectangle(start, end):
     down()
     begin_fill()
     
+    #Ciclo para detrminar longitud de lados
+    
     for count in range(2):
         
+        #Longitud Horizontal
         forward(end.x - start.x)
         left(90)
 
+        #Longitud Vertical
         forward(end.y - start.y)
         left(90)
 
+    #Terminar figura
     end_fill()
 
 #Funcion para dibujar triangulo
@@ -100,11 +105,17 @@ def triangle(start, end):
     down()
     begin_fill()
     
+    #Ciclo para detrminar longitud y angulos
+    
     for count in range(3):
         
+        #Detrinar longitud
         forward(end.x - start.x)
+        
+        #Crear angulo de 60 grados
         left(120)
         
+    #Terminar Figura
     end_fill()
     pass  # TODO
 
